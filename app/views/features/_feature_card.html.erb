@@ -43,7 +43,7 @@
     <% if feature.spec_url %>
       <% if feature.spec_url.start_with?('[') %>
         <span class="card-link">Spec:</span>
-        <% specURLs = feature.spec_url.tr('[]""','').split(',') %>
+        <% specURLs = JSON.parse feature.spec_url %>
         <% specURLs.each_with_index { |specURL, index| %>
           <%= link_to (index + 1).to_s, specURL.strip, class: "card-link spec-link" %>
         <% } %>
